@@ -22,6 +22,7 @@
             = new List<DetallePedido>();
 
         public Pago? Pago { get; set; }
+        public string? DireccionEntrega { get; set; }
 
         public Entrega? Entrega { get; set; }
     }

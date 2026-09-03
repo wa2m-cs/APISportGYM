@@ -33,6 +33,7 @@ namespace ApiSportGYM.Controllers
                     p.Estado,
                     p.Subtotal,
                     p.CostoEnvio,
+                    p.DireccionEntrega,
                     p.Total,
 
                     Cliente = new
@@ -85,6 +86,7 @@ namespace ApiSportGYM.Controllers
                     p.Estado,
                     p.Subtotal,
                     p.CostoEnvio,
+                    p.DireccionEntrega,
                     p.Total,
 
                     Cliente = new
@@ -134,7 +136,6 @@ namespace ApiSportGYM.Controllers
                         {
                             p.Entrega.IdEntrega,
                             p.Entrega.EstadoEntrega,
-                            p.Entrega.DireccionEntrega
                         }
                 })
                 .FirstOrDefaultAsync();
@@ -176,6 +177,7 @@ namespace ApiSportGYM.Controllers
                     p.FechaPedido,
                     p.Estado,
                     p.Subtotal,
+                    p.DireccionEntrega,
                     p.CostoEnvio,
                     p.Total,
 
@@ -193,7 +195,7 @@ namespace ApiSportGYM.Controllers
         {
             try
             {
-                var idPedido = new SqlParameter
+                var idPedidoParam = new SqlParameter
                 {
                     ParameterName = "@IdPedido",
                     SqlDbType = SqlDbType.Int,
@@ -201,13 +203,31 @@ namespace ApiSportGYM.Controllers
                 };
 
                 await _context.Database.ExecuteSqlRawAsync(
-                    "EXEC sp_CrearPedido @IdCliente, @CostoEnvio, @IdPedido OUTPUT",
-                    new SqlParameter("@IdCliente", dto.IdCliente),
-                    new SqlParameter("@CostoEnvio", dto.CostoEnvio),
-                    idPedido
+                    @"EXEC sp_CrearPedido
+                    @IdCliente,
+                    @CostoEnvio,
+                    @DireccionEntrega,
+                    @IdPedido OUTPUT",
+
+                    new SqlParameter(
+                        "@IdCliente",
+                        dto.IdCliente
+                    ),
+
+                    new SqlParameter(
+                        "@CostoEnvio",
+                        dto.CostoEnvio
+                    ),
+
+                    new SqlParameter(
+                        "@DireccionEntrega",
+                        dto.DireccionEntrega
+                    ),
+
+                    idPedidoParam
                 );
 
-                var nuevoId = (int)idPedido.Value;
+                var nuevoId = (int)idPedidoParam.Value;
 
                 return CreatedAtAction(
                     nameof(GetPedido),

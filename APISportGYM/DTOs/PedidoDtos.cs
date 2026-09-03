@@ -9,7 +9,10 @@ namespace ApiSportGYM.DTOs
 
         [Range(0, 99999999)]
         public decimal CostoEnvio { get; set; }
+
+        public string DireccionEntrega { get; set; } = string.Empty;
     }
+
 
     public class PedidoEstadoDto
     {
