@@ -24,6 +24,8 @@ namespace ApiSportGYM.DTOs
 
         [MaxLength(25)]
         public string? Telefono { get; set; }
+
+        public DateTime? FechaNacimiento { get; set; }
     }
 
     public class LoginDto

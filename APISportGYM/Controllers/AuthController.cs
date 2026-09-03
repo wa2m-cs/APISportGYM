@@ -55,9 +55,11 @@ namespace ApiSportGYM.Controllers
                 Apellido = dto.Apellido.Trim(),
                 Correo = correo,
                 Telefono = dto.Telefono?.Trim(),
+                FechaNacimiento = dto.FechaNacimiento,
                 Estado = true,
                 FechaRegistro = DateTime.Now,
                 IdRol = rolCliente.IdRol
+
             };
 
             var passwordHasher = new PasswordHasher<Usuario>();
@@ -83,6 +85,7 @@ namespace ApiSportGYM.Controllers
                     usuario.Correo,
                     usuario.Telefono,
                     usuario.Estado,
+                    usuario.FechaNacimiento,
 
                     rol = "Cliente"
                 }

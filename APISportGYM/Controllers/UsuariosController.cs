@@ -47,6 +47,7 @@ namespace ApiSportGYM.Controllers
                     u.Nombre,
                     u.Apellido,
                     u.Correo,
+                    u.FechaNacimiento,
                     u.Telefono,
                     u.Estado,
                     u.FechaRegistro,
@@ -76,6 +77,7 @@ namespace ApiSportGYM.Controllers
                     u.Apellido,
                     u.Correo,
                     u.Telefono,
+                    u.FechaNacimiento,
                     u.Estado,
                     u.FechaRegistro,
 
@@ -159,6 +161,7 @@ namespace ApiSportGYM.Controllers
                 Correo = correo,
                 Telefono = dto.Telefono?.Trim(),
                 Estado = true,
+                FechaNacimiento = dto.FechaNacimiento,
                 FechaRegistro = DateTime.Now,
                 IdRol = dto.IdRol
             };
@@ -237,6 +240,7 @@ namespace ApiSportGYM.Controllers
             usuario.Apellido = dto.Apellido.Trim();
             usuario.Correo = correo;
             usuario.Telefono = dto.Telefono?.Trim();
+            usuario.FechaNacimiento = dto.FechaNacimiento;
             usuario.Estado = dto.Estado;
             usuario.IdRol = dto.IdRol;
 

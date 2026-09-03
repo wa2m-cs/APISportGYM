@@ -27,6 +27,8 @@ namespace ApiSportGYM.DTOs
 
         [Range(1, int.MaxValue)]
         public int IdRol { get; set; }
+
+        public DateTime? FechaNacimiento { get; set; }
     }
 
     public class UsuarioActualizarDto
@@ -51,5 +53,7 @@ namespace ApiSportGYM.DTOs
 
         [Range(1, int.MaxValue)]
         public int IdRol { get; set; }
+
+        public DateTime? FechaNacimiento { get; set; }
     }
 }
