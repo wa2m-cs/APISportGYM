@@ -4,8 +4,6 @@
     {
         public int IdEntrega { get; set; }
 
-        public string DireccionEntrega { get; set; } = string.Empty;
-
         public DateTime FechaAsignacion { get; set; }
 
         public DateTime? FechaEntrega { get; set; }

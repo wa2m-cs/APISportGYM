@@ -252,7 +252,6 @@ namespace ApiSportGYM.Controllers
                         e.IdEntrega,
                         e.IdPedido,
                         e.IdRepartidor,
-                        e.DireccionEntrega,
                         e.FechaAsignacion,
                         e.EstadoEntrega,
                         e.Observaciones
