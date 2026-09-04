@@ -28,7 +28,6 @@ namespace ApiSportGYM.Controllers
                 .Select(e => new
                 {
                     e.IdEntrega,
-                    e.DireccionEntrega,
                     e.FechaAsignacion,
                     e.FechaEntrega,
                     e.EstadoEntrega,
@@ -73,7 +72,6 @@ namespace ApiSportGYM.Controllers
                 .Select(e => new
                 {
                     e.IdEntrega,
-                    e.DireccionEntrega,
                     e.FechaAsignacion,
                     e.FechaEntrega,
                     e.EstadoEntrega,
@@ -141,7 +139,6 @@ namespace ApiSportGYM.Controllers
                 .Select(e => new
                 {
                     e.IdEntrega,
-                    e.DireccionEntrega,
                     e.FechaAsignacion,
                     e.FechaEntrega,
                     e.EstadoEntrega,
@@ -196,7 +193,6 @@ namespace ApiSportGYM.Controllers
                 .Select(e => new
                 {
                     e.IdEntrega,
-                    e.DireccionEntrega,
                     e.FechaAsignacion,
                     e.FechaEntrega,
                     e.EstadoEntrega,
@@ -232,7 +228,6 @@ namespace ApiSportGYM.Controllers
                     @"EXEC sp_AsignarEntrega
                         @IdPedido,
                         @IdRepartidor,
-                        @DireccionEntrega,
                         @Observaciones",
 
                     new SqlParameter(
@@ -242,10 +237,6 @@ namespace ApiSportGYM.Controllers
                     new SqlParameter(
                         "@IdRepartidor",
                         dto.IdRepartidor),
-
-                    new SqlParameter(
-                        "@DireccionEntrega",
-                        dto.DireccionEntrega.Trim()),
 
                     new SqlParameter(
                         "@Observaciones",

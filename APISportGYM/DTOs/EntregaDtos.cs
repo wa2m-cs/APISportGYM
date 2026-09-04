@@ -10,10 +10,6 @@ namespace ApiSportGYM.DTOs
         [Range(1, int.MaxValue)]
         public int IdRepartidor { get; set; }
 
-        [Required]
-        [MaxLength(300)]
-        public string DireccionEntrega { get; set; } = string.Empty;
-
         [MaxLength(500)]
         public string? Observaciones { get; set; }
     }
